@@ -7,6 +7,7 @@
     "jsr:@gfx/canvas@~0.5.8": "0.5.8",
     "jsr:@oak/commons@1": "1.0.0",
     "jsr:@oak/oak@*": "17.1.0",
+    "jsr:@oak/oak@^17.1.0": "17.1.0",
     "jsr:@std/assert@0.214": "0.214.0",
     "jsr:@std/assert@0.217": "0.217.0",
     "jsr:@std/assert@1": "1.0.6",
@@ -14,6 +15,7 @@
     "jsr:@std/bytes@^1.0.2": "1.0.2",
     "jsr:@std/crypto@1": "1.0.3",
     "jsr:@std/csv@*": "1.0.3",
+    "jsr:@std/csv@^1.0.3": "1.0.3",
     "jsr:@std/encoding@*": "1.0.5",
     "jsr:@std/encoding@0.214": "0.214.0",
     "jsr:@std/encoding@0.217.0": "0.217.0",
@@ -188,7 +190,9 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@gfx/canvas@~0.5.8"
+      "jsr:@gfx/canvas@~0.5.8",
+      "jsr:@oak/oak@^17.1.0",
+      "jsr:@std/csv@^1.0.3"
     ]
   }
 }
