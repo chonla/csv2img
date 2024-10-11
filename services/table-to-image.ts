@@ -200,7 +200,7 @@ function TableToImage(tableData: TableData, imageOptions: ImageOptions): string 
         yOffset += rowHeights[rowIndex] - theme.borderWidth;
     });
 
-    canvas.save("image.png");
+    // canvas.save("image.png");
 
     return canvas.toDataURL("png", 100);
 }

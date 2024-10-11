@@ -1,5 +1,8 @@
 {
   "imports": {
     "@gfx/canvas": "jsr:@gfx/canvas@^0.5.8"
-  }
+  },
+  "unstable": [
+    "ffi"
+  ]
 }
