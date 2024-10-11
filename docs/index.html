@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create CSV Table Image</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function getLink() {
+            const formData = new FormData($('form')[0]);
+            const search = new URLSearchParams(formData);
+            const queryParam = search.toString();
+            console.log(queryParam);
+            $('#pdf-link').val(`https://certmaker.deno.dev?${queryParam}`);
+        }
+
+        $(() => {
+            $('form').on('change', getLink);
+        });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background-color: rgb(185, 217, 209);
+            font-family: 'Noto Serif Thai', sans-serif;
+            font-size: 13pt;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        div,
+        input,
+        select,
+        textarea {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Noto Serif Thai', cursive;
+            color: #202020;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        form {
+            width: 80%;
+            max-width: 800px;
+        }
+
+        hr {
+            border-style: none;
+            margin: 1.5em 0;
+        }
+
+        label {
+            display: block;
+        }
+
+        *+label {
+            margin-top: 1em;
+        }
+
+        textarea {
+            font-family: 'Noto Serif Thai', sans-serif;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            font-size: 1.5em;
+            width: 100%;
+            color: #202020;
+            padding: 8px;
+            height: 6em;
+        }
+
+        input[type="text"] {
+            font-family: 'Noto Serif Thai', sans-serif;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            font-size: 2em;
+            width: 100%;
+            color: #202020;
+            padding: 8px;
+        }
+
+        select {
+            border: 1px solid #404040;
+            border-radius: 4px;
+            font-size: 1.5em;
+            width: 100%;
+            color: #202020;
+            padding: 8px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+        }
+
+        .helper {
+            font-style: italic;
+            color: #606060;
+            font-size: 0.8em;
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            column-gap: 10px;
+            justify-content: space-between;
+        }
+
+        button {
+            border-radius: 4px;
+            font-size: 1em;
+            line-height: 2em;
+            border: 1 px solid #000000;
+            background-color: #fff;
+            width: 100%;
+            color: #202020;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            font-family: 'Noto Serif Thai', sans-serif;
+            background-color: #525f4f;
+            color: #f8f8f8;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create CSV Table Image</h1>
+
+    <form>
+        <label for="csv_data">
+            CSV Data <span class="helper">(comma separated values)</span>
+        </label>
+        <textarea id="csv_data" name="csv_data"></textarea>
+
+        <label for="theme">
+            Color theme
+        </label>
+        <select name="theme">
+            <option value="default">Default (greyish)</option>
+            <option value="blueish">Blueish</option>
+        </select>
+
+        <hr>
+
+        <h2>Options</h2>
+        <label for="is_first_row_headers">
+            <input type="checkbox"> First row is headers.
+        </label>
+
+        <hr>
+
+        <div class="buttons">
+            <button type="submit">Generate Image</button>
+        </div>
+    </form>
+</body>
+
+</html>

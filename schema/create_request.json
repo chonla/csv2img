@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CSV Data with Theme",
+    "description": "Schema for specifying CSV data with an optional theme",
+    "type": "object",
+    "properties": {
+        "theme": {
+            "type": "string",
+            "description": "The theme to apply to the CSV data (e.g., 'blueish', 'greyish'). If omitted, 'default' is used.",
+            "enum": [
+                "blueish",
+                "greyish",
+                "default"
+            ],
+            "default": "default"
+        },
+        "csv": {
+            "type": "object",
+            "description": "The CSV data",
+            "properties": {
+                "isFirstRowHeaders": {
+                    "type": "boolean",
+                    "description": "Indicates whether the first row contains headers"
+                },
+                "data": {
+                    "type": "string",
+                    "description": "The CSV data as a string"
+                }
+            },
+            "required": [
+                "isFirstRowHeaders",
+                "data"
+            ]
+        }
+    },
+    "required": [
+        "csv"
+    ]
+}
